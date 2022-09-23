@@ -14,6 +14,8 @@ class UsuarioCell: UITableViewCell {
 
     @IBOutlet weak var ApellidoPaterno: UILabel!
     
+    @IBOutlet weak var ApellidoMaterno: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -19,8 +19,7 @@ class Usuario{
     var Usuarios : [Usuario]?
     
     static func Add(_ usuario : Usuario){
-        let query = "INSERT INTO Usuario (Nombre,ApellidoPaterno,ApellidoMaterno,UserName,Password) VALUES(?,?,?,?,?);"
-        
+        let query = "INSERT INTO Usuario (Nombre,ApellidoPaterno,ApellidoMaterno,UserName,Password) VALUES(?,?,?,?,?);"        
         let conexion = Conexion.init()
         var statement : OpaquePointer? = nil
         

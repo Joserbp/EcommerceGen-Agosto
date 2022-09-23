@@ -14,11 +14,8 @@ class UsuarioControllerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.register(UINib(nibName: "UsuarioCell", bundle: nil), forCellReuseIdentifier: "UsuarioCell")
     }
     
     func loadData()
@@ -46,10 +43,12 @@ class UsuarioControllerTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UsuarioCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UsuarioCell", for: indexPath) as! UsuarioCell
 
         let usuario : Usuario = usuarios[indexPath.row]
-        cell.textLabel?.text = usuario.Nombre
+        cell.Nombre.text = usuario.Nombre
+        cell.ApellidoPaterno.text = usuario.ApellidoPaterno
+        cell.ApellidoMaterno.text = usuario.ApellidoMaterno
         
         return cell
     }
