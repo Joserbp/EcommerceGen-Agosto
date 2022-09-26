@@ -73,6 +73,19 @@ class Usuario{
         }
         return result
     }
+    static func Delete(idUsuario: Int){
+        var query = "DELETE FROM Usuario WHERE IdUsuario = \(idUsuario)"
+        var statement : OpaquePointer? = nil
+        let conexion = Conexion.init()
+        
+        if sqlite3_prepare_v2(conexion.db, query, -1, &statement, nil) == SQLITE_OK{
+            if sqlite3_step(statement) == SQLITE_DONE {
+                print("Usuario eliminado correctamente")
+            }else {
+                print("Error al eliminar el usuario")
+            }
+        }
+    }
 }
 
 

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class UsuarioCell: UITableViewCell {
+class UsuarioCell : SwipeTableViewCell{
 
     
     @IBOutlet weak var Nombre: UILabel!
