@@ -16,6 +16,7 @@
 		FB089AE528DA2AC1008238BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB089AE428DA2AC1008238BB /* Assets.xcassets */; };
 		FB089AF028DA2B14008238BB /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB089AEF28DA2B14008238BB /* Usuario.swift */; };
 		FB820B5D28DA73CE00DF788C /* Conexion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB820B5C28DA73CE00DF788C /* Conexion.swift */; };
+		FBC2843728E3B268003EDFB4 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2843628E3B268003EDFB4 /* testViewController.swift */; };
 		FBD23AEC28DBC8A100237B5B /* UsuarioControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD23AEB28DBC8A100237B5B /* UsuarioControllerTableViewController.swift */; };
 		FBD23AEE28DBCA2500237B5B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD23AED28DBCA2500237B5B /* Result.swift */; };
 		FBF8F3B028DD18990037934A /* UsuarioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8F3AE28DD18990037934A /* UsuarioCell.swift */; };
@@ -36,6 +37,7 @@
 		FB089AE928DA2AC1008238BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB089AEF28DA2B14008238BB /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		FB820B5C28DA73CE00DF788C /* Conexion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conexion.swift; sourceTree = "<group>"; };
+		FBC2843628E3B268003EDFB4 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		FBD23AEB28DBC8A100237B5B /* UsuarioControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioControllerTableViewController.swift; sourceTree = "<group>"; };
 		FBD23AED28DBCA2500237B5B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FBF8F3AE28DD18990037934A /* UsuarioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioCell.swift; sourceTree = "<group>"; };
@@ -68,7 +70,6 @@
 				97DFE4B549A64CFE4F195218 /* Pods-JBecerraEcommerce.debug.xcconfig */,
 				522681181C973DE1AC78CD3E /* Pods-JBecerraEcommerce.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -120,6 +121,7 @@
 			children = (
 				FB089ADC28DA2ABC008238BB /* ViewController.swift */,
 				FBD23AEB28DBC8A100237B5B /* UsuarioControllerTableViewController.swift */,
+				FBC2843628E3B268003EDFB4 /* testViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,6 +259,7 @@
 				FB089AF028DA2B14008238BB /* Usuario.swift in Sources */,
 				FB089ADB28DA2ABC008238BB /* SceneDelegate.swift in Sources */,
 				FBD23AEE28DBCA2500237B5B /* Result.swift in Sources */,
+				FBC2843728E3B268003EDFB4 /* testViewController.swift in Sources */,
 				FBD23AEC28DBC8A100237B5B /* UsuarioControllerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

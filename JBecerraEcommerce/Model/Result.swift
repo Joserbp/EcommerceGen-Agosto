@@ -14,3 +14,5 @@ class Result{
     var Correct : Bool?
     var Objects : [Any]?
 }
+
+

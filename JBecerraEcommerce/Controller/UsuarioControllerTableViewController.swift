@@ -9,9 +9,9 @@ import UIKit
 import SwipeCellKit
 
 class UsuarioControllerTableViewController: UITableViewController {
-    
-    var usuarios : [Usuario] = []
 
+    var usuarios : [Usuario] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -45,7 +45,7 @@ class UsuarioControllerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DatosCell", for:indexPath) as! UsuarioCell
-
+        
         cell.delegate = self
         
         let usuario : Usuario = usuarios[indexPath.row]
@@ -59,28 +59,18 @@ class UsuarioControllerTableViewController: UITableViewController {
 
 extension UsuarioControllerTableViewController : SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        
+        
         guard orientation == .right else { return nil }
-
-            let deleteAction = SwipeAction(style: .destructive, title: "Borrar") { action, indexPath in
-                
-                let usuario : Usuario = self.usuarios[indexPath.row] as! Usuario
-                Usuario.Delete(idUsuario: usuario.IdUsuario)
-                self.loadData()
-            }
-
-            return [deleteAction]
+        let deleteAction = SwipeAction(style: .destructive, title: "Borrar") { action, indexPath in
+            let usuario : Usuario = self.usuarios[indexPath.row] as! Usuario
+            Usuario.Delete(idUsuario: usuario.IdUsuario)
+            self.loadData()
+        }
+        
+        return [deleteAction]
+        
     }
 }
-    
-//extension UsuarioControllerTableViewController : SwipeTableViewCellDelegate{
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-//        guard orientation == .right else { return nil }
-//
-//        let deleteAction = SwipeAction(style: .destructive, title: "Borrar") { action, indexPath in
-//            let idUsuario = self.usuarios[indexPath.row].IdUsuario
-//            Usuario.Delete(idUsuario: idUsuario)
-//            self.loadData()
-//        }
-//        return [deleteAction]
-//    }
-//}
+
