@@ -33,17 +33,20 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="m7w-gM-Cyq">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Kaw-sr-1kF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ypc-1a-Qe6">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ypc-1a-Qe6" userLabel="Agregar">
                                 <rect key="frame" x="20" y="5" width="92" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="3J8-2E-di5"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="SeguesActualizar" id="OX1-Hm-EuM"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" id="LyW-GU-5Sd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnY-db-G7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +195,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" title="Segues"/>
                                                 <connections>
-                                                    <action selector="segues:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLp-EG-jeZ"/>
+                                                    <action selector="ActionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kWS-Vi-Dsg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -207,29 +210,7 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRS-M9-opR">
                                         <rect key="frame" x="95.000000000000014" y="414" width="224.33333333333337" height="311"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ozg-IQ-4Nm">
-                                                <rect key="frame" x="20" y="140" width="184.33333333333334" height="31"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="31" id="WWl-9i-tga"/>
-                                                </constraints>
-                                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Guardar">
-                                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="AddButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="CKm-JQ-aKx"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="Ozg-IQ-4Nm" firstAttribute="centerY" secondItem="LRS-M9-opR" secondAttribute="centerY" id="2bp-8X-Qhp"/>
-                                            <constraint firstItem="Ozg-IQ-4Nm" firstAttribute="leading" secondItem="LRS-M9-opR" secondAttribute="leading" constant="20" id="utF-RC-Fa1"/>
-                                            <constraint firstItem="Ozg-IQ-4Nm" firstAttribute="centerX" secondItem="LRS-M9-opR" secondAttribute="centerX" id="wYE-6I-Z7m"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -249,50 +230,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="tBf-4D-2PI"/>
                     <connections>
+                        <outlet property="ActionButton" destination="2D2-zb-ffB" id="ZeN-GE-u8L"/>
                         <outlet property="ApellidoMaternoField" destination="f5d-73-yD4" id="CdW-FP-Boh"/>
                         <outlet property="ApellidoPaternoField" destination="ydR-wq-Mlt" id="1rj-BT-CxU"/>
                         <outlet property="NombreField" destination="xJ2-t8-ton" id="IsY-ao-pfe"/>
                         <outlet property="PasswordField" destination="SzC-lj-dox" id="fJq-fh-Ra4"/>
                         <outlet property="UserNameField" destination="hNZ-3N-f1V" id="wPx-n6-WMD"/>
-                        <segue destination="6mE-qv-stX" kind="show" identifier="test" id="cxe-V6-e9F"/>
-                        <segue destination="Zd6-ae-8V4" kind="show" identifier="deploy" id="KwI-d2-Dzj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="337.68115942028987" y="-413.16964285714283"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="JxV-4Z-vnN">
-            <objects>
-                <viewController id="6mE-qv-stX" customClass="testViewController" customModule="JBecerraEcommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eGt-iI-cSZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="MHB-VY-Dr2"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="54i-7D-Vot"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RcE-yc-3J9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1384" y="-534"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="5OG-wr-oQ5">
-            <objects>
-                <viewController id="Zd6-ae-8V4" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9Pv-MX-uqB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="CQl-4Y-QDT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="PBV-V1-Idx"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rIG-GW-XCt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1383" y="133"/>
         </scene>
         <!--Usuario-->
         <scene sceneID="sP6-RF-NOg">
@@ -307,7 +255,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="YLX-lJ-LwT" kind="relationship" relationship="rootViewController" id="SA5-Gh-xMQ"/>
+                        <segue destination="YLX-lJ-LwT" kind="relationship" relationship="rootViewController" id="P3e-ee-kpg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I9-2e-1f8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -315,13 +263,13 @@
             <point key="canvasLocation" x="-1620.289855072464" y="-412.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OX1-Hm-EuM"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

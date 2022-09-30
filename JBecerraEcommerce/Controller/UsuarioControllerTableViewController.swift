@@ -11,7 +11,7 @@ import SwipeCellKit
 class UsuarioControllerTableViewController: UITableViewController {
 
     var usuarios : [Usuario] = []
-    
+    var usuario : Usuario = Usuario()
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -60,17 +60,29 @@ class UsuarioControllerTableViewController: UITableViewController {
 extension UsuarioControllerTableViewController : SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         
-        
-        
-        guard orientation == .right else { return nil }
-        let deleteAction = SwipeAction(style: .destructive, title: "Borrar") { action, indexPath in
-            let usuario : Usuario = self.usuarios[indexPath.row] as! Usuario
-            Usuario.Delete(idUsuario: usuario.IdUsuario)
-            self.loadData()
+        if orientation == .left {
+            let updateAction = SwipeAction(style: .default, title: "Actulizar") { action, indexPath in
+                self.usuario = self.usuarios[indexPath.row] as! Usuario
+                self.performSegue(withIdentifier: "SeguesActualizar", sender: self)
+            }
+            return [updateAction]
+            
+        }else{
+            
+            let deleteAction = SwipeAction(style: .destructive, title: "Borrar") { action, indexPath in
+                let usuario : Usuario = self.usuarios[indexPath.row] as! Usuario
+                Usuario.Delete(idUsuario: usuario.IdUsuario)
+                self.loadData()
+            }
+
+            return [deleteAction]
         }
-        
-        return [deleteAction]
-        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SeguesActualizar" {
+            var viewController = segue.destination as? ViewController
+            viewController?.IdUsuario = self.usuario.IdUsuario
+        }
     }
 }
 

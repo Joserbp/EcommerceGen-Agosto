@@ -10,7 +10,9 @@ import UIKit
 class ViewController: UIViewController {
 
 
-    let IdUsuario : Int = 0
+    @IBOutlet weak var ActionButton: UIButton!
+    
+    var IdUsuario : Int = 0
     @IBOutlet weak var NombreField: UITextField!
     @IBOutlet weak var ApellidoPaternoField: UITextField!
     @IBOutlet weak var ApellidoMaternoField: UITextField!
@@ -23,56 +25,48 @@ class ViewController: UIViewController {
     }
 
     func Validar (){
-        if self.IdUsuario != 0 {
+        if self.IdUsuario != 0 {  //UPDATE
+            ActionButton.setTitle("Actualizar", for: .normal)
+            ActionButton.backgroundColor = UIColor.yellow
+            
             let result: Result = Usuario.GetById(IdUsuario)
-            if result.Correct {
+            if result.Correct! {
                 let usuario = result.Object as! Usuario
                 NombreField.text = usuario.Nombre
-                
-                button.text = "Actualizar"
-                button.background = .yellow
+                ApellidoPaternoField.text  = usuario.ApellidoPaterno
+                ApellidoMaternoField.text  = usuario.ApellidoMaterno
+                UserNameField.text  = usuario.UserName
+                PasswordField.text  = usuario.Password
             }
             else
             {
                 print("Ocurrio un error \(result.ErrorMessage)")
             }
         }
-    }
-    @IBAction func AddButton() {
-        
-        var usuario = Usuario()
-        usuario.Nombre = NombreField.text
-        usuario.ApellidoPaterno = ApellidoPaternoField.text
-        usuario.ApellidoMaterno = ApellidoMaternoField.text
-        usuario.UserName = UserNameField.text
-        usuario.Password = PasswordField.text
-        usuario.IdUsuario = self.IdUsuario
-        
-        if sender.text == "Agregar" {
-            Usuario.Add(usuario)
+        else{ //ADD
+            ActionButton.setTitle("Agregar", for: .normal)
+            ActionButton.backgroundColor = UIColor.green
         }
-        else if sender.text == "Actualizar"{
-            Usuario.Update(usuario)
-        }
-        
     }
-    @IBAction func segues(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "test", sender: self)
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "test" {
-            var testViewController = segue.destination as? testViewController
 
-            testViewController?.idUsuario = usurio.IdUsuario
-
-            //let destinationVC = sender.destination as!     nameViewController
-           //            destinationVC.property = value
-        }
-        if segue.identifier == "deploy"{
-            //Action for deploy
+    @IBAction func ActionButton(_ sender: UIButton) {
+        
+            let usuario = Usuario()
+            usuario.Nombre = NombreField.text
+            usuario.ApellidoPaterno = ApellidoPaternoField.text
+            usuario.ApellidoMaterno = ApellidoMaternoField.text
+            usuario.UserName = UserNameField.text
+            usuario.Password = PasswordField.text
+            
+        if sender.currentTitle == "Agregar" {
+                Usuario.Add(usuario)
+            }
+        else if sender.currentTitle  == "Actualizar"{
+                usuario.IdUsuario = self.IdUsuario
+                Usuario.Update(usuario)
+            }
+        else{
+            print("Opcion no encontrada")
         }
     }
-    
 }
