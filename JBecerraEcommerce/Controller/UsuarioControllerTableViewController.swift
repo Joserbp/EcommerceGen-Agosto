@@ -16,12 +16,13 @@ class UsuarioControllerTableViewController: UITableViewController {
         super.viewDidLoad()
         loadData()
         tableView.register(UINib(nibName: "UsuarioCell", bundle: nil), forCellReuseIdentifier: "DatosCell")
+
     }
     
     func loadData()
     {
         do{
-            var result = try! Usuario.GetAll()
+            let result = Usuario.GetAll()
             if result.Correct!{
                 usuarios = result.Objects as! [Usuario]
                 tableView.reloadData()
@@ -52,6 +53,7 @@ class UsuarioControllerTableViewController: UITableViewController {
         cell.Nombre.text = usuario.Nombre
         cell.ApellidoPaterno.text = usuario.ApellidoPaterno
         cell.ApellidoMaterno.text = usuario.ApellidoMaterno
+//        cell.FotoView.image = UIImage(named: usuario.Image)
         
         return cell
     }
@@ -62,7 +64,7 @@ extension UsuarioControllerTableViewController : SwipeTableViewCellDelegate{
         
         if orientation == .left {
             let updateAction = SwipeAction(style: .default, title: "Actulizar") { action, indexPath in
-                self.usuario = self.usuarios[indexPath.row] as! Usuario
+                self.usuario = self.usuarios[indexPath.row]
                 self.performSegue(withIdentifier: "SeguesActualizar", sender: self)
             }
             return [updateAction]
@@ -70,7 +72,7 @@ extension UsuarioControllerTableViewController : SwipeTableViewCellDelegate{
         }else{
             
             let deleteAction = SwipeAction(style: .destructive, title: "Borrar") { action, indexPath in
-                let usuario : Usuario = self.usuarios[indexPath.row] as! Usuario
+                let usuario : Usuario = self.usuarios[indexPath.row]
                 Usuario.Delete(idUsuario: usuario.IdUsuario)
                 self.loadData()
             }
@@ -80,7 +82,7 @@ extension UsuarioControllerTableViewController : SwipeTableViewCellDelegate{
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SeguesActualizar" {
-            var viewController = segue.destination as? ViewController
+            let viewController = segue.destination as? ViewController
             viewController?.IdUsuario = self.usuario.IdUsuario
         }
     }

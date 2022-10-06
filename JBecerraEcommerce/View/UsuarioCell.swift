@@ -11,6 +11,7 @@ import SwipeCellKit
 class UsuarioCell : SwipeTableViewCell{
 
     
+    @IBOutlet weak var FotoView: UIImageView!
     @IBOutlet weak var Nombre: UILabel!
 
     @IBOutlet weak var ApellidoPaterno: UILabel!
@@ -24,7 +25,6 @@ class UsuarioCell : SwipeTableViewCell{
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

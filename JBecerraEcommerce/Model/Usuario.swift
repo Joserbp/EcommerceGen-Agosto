@@ -18,6 +18,10 @@ class Usuario{
     var Password : String? = nil
     var Usuarios : [Usuario]?
     
+    static func GetByEmail(_ email : String) -> Result{
+        let result = Result()
+        return result
+    }
     static func Add(_ usuario : Usuario){
         let query = "INSERT INTO Usuario (Nombre,ApellidoPaterno,ApellidoMaterno,UserName,Password) VALUES(?,?,?,?,?);"        
         let conexion = Conexion.init()
@@ -37,6 +41,7 @@ class Usuario{
                 print("Ocurrio un error")
             }
         }
+        sqlite3_close(conexion.db)
     }
     static func GetAll() -> Result{
         let result = Result()
@@ -71,12 +76,14 @@ class Usuario{
             result.Ex = error
             result.ErrorMessage = error.localizedDescription
         }
+        sqlite3_close(conexion.db)
         return result
     }
+    
     static func GetById(_ idUsuario : Int) -> Result{
         let result = Result()
         
-        let query =  "SELECT IdUsuario,Nombre,ApellidoPaterno,ApellidoMaterno,UserName,Password FROM Usuario WHERE IdUsuario = \(idUsuario);"
+        var query =  "SELECT IdUsuario,Nombre,ApellidoPaterno,ApellidoMaterno,UserName,Password FROM Usuario WHERE IdUsuario = \(idUsuario);"
         var statement : OpaquePointer? = nil
         let conexion = Conexion.init()
         do{
@@ -105,20 +112,21 @@ class Usuario{
             result.Ex = error
             result.ErrorMessage = error.localizedDescription
         }
+        sqlite3_close(conexion.db)
         return result
     }
     
     static func Update(_ usuario: Usuario) -> Result{
         let result = Result()
+        let conexion = Conexion.init()
         do{
-            let query = "UPDATE Usuario SET Nombre = 'name' , ApellidoPaterno = '\(usuario.ApellidoPaterno!)' , ApellidoMaterno = '\(usuario.ApellidoMaterno!)', UserName = '\(usuario.UserName!)', Password = '\(usuario.Password!)' WHERE IdUsuario = \(usuario.IdUsuario);"
-            let conexion = Conexion.init()
+            var query = "UPDATE Usuario SET Nombre = \\'name\' , 'ApellidoPaterno' = 'update' , ApellidoMaterno = 'test', UserName = 'user', Password = '143' WHERE IdUsuario = \(usuario.IdUsuario);"
             var statement : OpaquePointer? = nil
             if sqlite3_prepare_v2(conexion.db, query, -1, &statement, nil) == SQLITE_OK{
                 if sqlite3_step(statement) == SQLITE_DONE {
                     result.Correct = true
                 }else {
-                    result.ErrorMessage = "Ocurrio un error al actualizar el usuario"
+                    result.ErrorMessage = "Ocurrio 'un error al actualizar el usuario"
                     result.Correct = false
                 }
             }
@@ -128,6 +136,7 @@ class Usuario{
             result.Ex = error
             result.ErrorMessage = error.localizedDescription
         }
+        sqlite3_close(conexion.db)
         return result
     }
     
@@ -143,6 +152,7 @@ class Usuario{
                 print("Error al eliminar el usuario")
             }
         }
+        sqlite3_close(conexion.db)
     }
 }
 

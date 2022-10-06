@@ -18,8 +18,10 @@
 		FB6F5C2128E656880044A1F3 /* ProductoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6F5C1F28E656880044A1F3 /* ProductoCollectionViewCell.swift */; };
 		FB6F5C2228E656880044A1F3 /* ProductoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6F5C2028E656880044A1F3 /* ProductoCollectionViewCell.xib */; };
 		FB820B5D28DA73CE00DF788C /* Conexion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB820B5C28DA73CE00DF788C /* Conexion.swift */; };
+		FB91DF3928EA9B7A008F638B /* ProductoCardsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB91DF3828EA9B7A008F638B /* ProductoCardsCollectionViewController.swift */; };
 		FBD23AEC28DBC8A100237B5B /* UsuarioControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD23AEB28DBC8A100237B5B /* UsuarioControllerTableViewController.swift */; };
 		FBD23AEE28DBCA2500237B5B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD23AED28DBCA2500237B5B /* Result.swift */; };
+		FBE3BE1428EB52C200C7CCB7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3BE1328EB52C100C7CCB7 /* LoginViewController.swift */; };
 		FBF8F3B028DD18990037934A /* UsuarioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8F3AE28DD18990037934A /* UsuarioCell.swift */; };
 		FBF8F3B128DD18990037934A /* UsuarioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF8F3AF28DD18990037934A /* UsuarioCell.xib */; };
 /* End PBXBuildFile section */
@@ -40,8 +42,10 @@
 		FB6F5C1F28E656880044A1F3 /* ProductoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB6F5C2028E656880044A1F3 /* ProductoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductoCollectionViewCell.xib; sourceTree = "<group>"; };
 		FB820B5C28DA73CE00DF788C /* Conexion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conexion.swift; sourceTree = "<group>"; };
+		FB91DF3828EA9B7A008F638B /* ProductoCardsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoCardsCollectionViewController.swift; sourceTree = "<group>"; };
 		FBD23AEB28DBC8A100237B5B /* UsuarioControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioControllerTableViewController.swift; sourceTree = "<group>"; };
 		FBD23AED28DBCA2500237B5B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		FBE3BE1328EB52C100C7CCB7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FBF8F3AE28DD18990037934A /* UsuarioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioCell.swift; sourceTree = "<group>"; };
 		FBF8F3AF28DD18990037934A /* UsuarioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsuarioCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,8 +125,10 @@
 		FB089AF228DA33C4008238BB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FB91DF3828EA9B7A008F638B /* ProductoCardsCollectionViewController.swift */,
 				FB089ADC28DA2ABC008238BB /* ViewController.swift */,
 				FBD23AEB28DBC8A100237B5B /* UsuarioControllerTableViewController.swift */,
+				FBE3BE1328EB52C100C7CCB7 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -255,7 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE3BE1428EB52C200C7CCB7 /* LoginViewController.swift in Sources */,
 				FB089AE328DA2ABC008238BB /* JBecerraEcommerce.xcdatamodeld in Sources */,
+				FB91DF3928EA9B7A008F638B /* ProductoCardsCollectionViewController.swift in Sources */,
 				FB089ADD28DA2ABC008238BB /* ViewController.swift in Sources */,
 				FB820B5D28DA73CE00DF788C /* Conexion.swift in Sources */,
 				FBF8F3B028DD18990037934A /* UsuarioCell.swift in Sources */,
@@ -412,7 +420,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +450,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -23,18 +23,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         Validar()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        <#code#>
-    }
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
-            ImageView.image = image //Obtiene la informacion de la foto y la almacena
-        }
-        imagePicker.dismiss(animated: true, completion: nil) //Cerrar la camara
-        
-        
-    }
     
     func Validar (){
         if self.IdUsuario != 0 {  //UPDATE
@@ -52,7 +40,7 @@ class ViewController: UIViewController {
             }
             else
             {
-                print("Ocurrio un error \(result.ErrorMessage)")
+                print("Ocurrio un error \(result.ErrorMessage!)")
             }
         }
         else{ //ADD
@@ -75,7 +63,7 @@ class ViewController: UIViewController {
             }
         else if sender.currentTitle  == "Actualizar"{
                 usuario.IdUsuario = self.IdUsuario
-                var result = Usuario.Update(usuario)
+                let result = Usuario.Update(usuario)
             if result.Correct!{
                 dismiss(animated: true, completion: nil) //Regresar al segues de controller que lo ejecuto
             }
